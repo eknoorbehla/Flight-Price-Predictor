@@ -8,8 +8,6 @@ st.markdown(
 
    unsafe_allow_html=True)
 
-
-df = pd.read_excel("Data_Train.xlsx")
 #st.header("Flight price Predictor")
 import datetime
 cont1 = st.container()
