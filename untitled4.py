@@ -80,8 +80,7 @@ if Arrival_hour>=12:
 else:
     s = "Arrival time is "+str(Arrival_hour)+":"+str(Arrival_min)+" A.M."
     st.info(s)
-        # print("Arrival : ", Arrival_hour, Arrival_min)
-        # Duration
+       
 time = arr_date-start_date
 
 sec = time.seconds
@@ -90,15 +89,10 @@ minutes= sec/60
 
 dur_hour = hours+abs(Arrival_hour%12 - Dep_hour%12)
 dur_min = minutes+abs(Arrival_min - Dep_min)
-        # print("Duration : ", dur_hour, dur_min)
-
-        # Total Stops
+     
 st.header("Stops")
 Total_stops = st.selectbox("",[0,1,2,3,4])
-        # print(Total_stops)
-
-        # Airline
-        # AIR ASIA = 0 (not in column)
+       
 st.header("Airways")
 airline=st.selectbox("",['Choose','Jet Airways','Indigo','Air India','Multiple carriers','SpiceJet','Vistara','GoAir','Multiple carriers Premium economy','Jet Airways Business','Vistara Premium economy','Trujet','Air Asia'])
 if(airline=='Jet Airways'):
@@ -257,20 +251,6 @@ else:
     Vistara_Premium_economy = 0
     Trujet = 0
 
-        # print(Jet_Airways,
-        #     IndiGo,
-        #     Air_India,
-        #     Multiple_carriers,
-        #     SpiceJet,
-        #     Vistara,
-        #     GoAir,
-        #     Multiple_carriers_Premium_economy,
-        #     Jet_Airways_Business,
-        #     Vistara_Premium_economy,
-        #     Trujet)
-
-        # Source
-        # Banglore = 0 (not in column)
 st.header("Departure City")
 Source = st.selectbox("",['Choose','Delhi','Kolkata','Mumbai','Chennai','Bangalore'])
 if (Source == 'Delhi'):
@@ -303,13 +283,6 @@ else:
     s_Mumbai = 0
     s_Chennai = 0
 
-        # print(s_Delhi,
-        #     s_Kolkata,
-        #     s_Mumbai,
-        #     s_Chennai)
-
-        # Destination
-        # Banglore = 0 (not in column)
 st.header("Destination")
 Source = st.selectbox("",['Choose','Cochin','Delhi','Chennai','Hyderabad','Kolkata','Bangalore'])
 if (Source == 'Cochin'):
@@ -354,26 +327,6 @@ else:
     d_Hyderabad = 0
     d_Kolkata = 0
 
-        # print(
-        #     d_Cochin,
-        #     d_Delhi,
-        #     d_New_Delhi,
-        #     d_Hyderabad,
-        #     d_Kolkata
-        # )
-        
-
-    #     ['Total_Stops', 'Journey_day', 'Journey_month', 'Dep_hour',
-    #    'Dep_min', 'Arrival_hour', 'Arrival_min', 'Duration_hours',
-    #    'Duration_mins', 'Airline_Air India', 'Airline_GoAir', 'Airline_IndiGo',
-    #    'Airline_Jet Airways', 'Airline_Jet Airways Business',
-    #    'Airline_Multiple carriers',
-    #    'Airline_Multiple carriers Premium economy', 'Airline_SpiceJet',
-    #    'Airline_Trujet', 'Airline_Vistara', 'Airline_Vistara Premium economy',
-    #    'Source_Chennai', 'Source_Delhi', 'Source_Kolkata', 'Source_Mumbai',
-    #    'Destination_Cochin', 'Destination_Delhi', 'Destination_Hyderabad',
-    #    'Destination_Kolkata', 'Destination_New Delhi']
-    
 p=0
 model = open('flight_rf (1).pkl','rb')
 forest = pickle.load(model)
@@ -409,5 +362,7 @@ prediction=forest.predict([[
     d_New_Delhi
      ]])
 p = prediction[0]
-s = "Price of your flight is "+str(round(p,2));
-st.success(s)
+s = "Price of your flight is Rs."+str(round(p,2));
+form = st.button("SUBMIT")
+if form:
+    st.success(s)
