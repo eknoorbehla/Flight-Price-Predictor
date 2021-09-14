@@ -375,7 +375,7 @@ else:
     #    'Destination_Kolkata', 'Destination_New Delhi']
     
 p=0
-model = open('flight_rf.pkl','rb')
+model = open('flight_rf(1).pkl','rb')
 forest = pickle.load(model)
 prediction=forest.predict([[
     Total_stops,
@@ -409,5 +409,5 @@ prediction=forest.predict([[
     d_New_Delhi
      ]])
 p = prediction[0]
-s = "Price of your flight is "+str(p);
+s = "Price of your flight is "+str(round(p,2));
 st.success(s)
