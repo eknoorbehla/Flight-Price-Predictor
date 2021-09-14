@@ -375,7 +375,7 @@ else:
     #    'Destination_Kolkata', 'Destination_New Delhi']
     
 p=0
-model = open('flight_rf(1).pkl','rb')
+model = open('flight_rf (1).pkl','rb')
 forest = pickle.load(model)
 prediction=forest.predict([[
     Total_stops,
