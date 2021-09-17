@@ -13,6 +13,8 @@ User provides Date of Journey,Source,Destination,Number of stops and this model 
 
 Dataset contains 11 columns initially.
 
+Dataset Link - https://www.kaggle.com/nikhilmittal/flight-fare-prediction-mh/
+
 Important parameters are : 
 
 Airline
